@@ -45,14 +45,23 @@ jobs:
 
       - name: Build
         run: |
-          dotnet build --configuration Release --no-restore GitVersion.MsBuild /p:Bootstrap=true
+          dotnet build --configuration Release --no-restore GitVersion.MsBuild -p:Bootstrap=true
           dotnet build --configuration Release --no-restore
 
       - name: Test
-        run: dotnet run --project Example --no-build
+        run: |
+          dotnet run --project Example --no-build
+          dotnet test --configuration Release --no-build -p:TestingPlatformCommandLineArguments="--report-trx --coverage"
 
       - name: Package
         run: dotnet pack --configuration Release --no-build
+
+      - name: Publish Test Results
+        uses: EnricoMi/publish-unit-test-result-action@v2
+        if: always()
+        with:
+          files: |
+            **/TestResults/*.trx
 
       - name: Upload Package Artifact
         uses: actions/upload-artifact@v4
@@ -62,3 +71,8 @@ jobs:
             **/*.nupkg
             **/*.snupkg
             retention-days: 14
+
+      - name: Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
