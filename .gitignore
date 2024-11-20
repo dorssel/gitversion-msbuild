@@ -6,6 +6,5 @@
 .vscode/
 bin/
 obj/
-runtimes/
 
 *.user

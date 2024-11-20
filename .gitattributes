@@ -14,7 +14,6 @@
 *.license   text
 *.json      text
 *.yml       text
-*.config    text
 
 *.sln      text
 *.csproj   text

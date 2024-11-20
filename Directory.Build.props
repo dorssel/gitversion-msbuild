@@ -11,7 +11,6 @@ SPDX-License-Identifier: MIT
     <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' != 'true'">false</ContinuousIntegrationBuild>
 
     <!-- Use the latest .NET SDK -->
-    <TargetFrameworks>net9.0</TargetFrameworks>
 
     <!-- Use the latest C# Language standard -->
     <LangVersion>13.0</LangVersion>
@@ -37,6 +36,7 @@ SPDX-License-Identifier: MIT
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)\strongname.snk</AssemblyOriginatorKeyFile>
 	-->
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
+	<NoWarn>CS1591</NoWarn>
 
     <!-- Assembly metadata -->
     <Product>dotnet-xmss-native</Product>
@@ -54,5 +54,16 @@ SPDX-License-Identifier: MIT
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <!-- "self-reference" bootstrapping -->
+  <PropertyGroup>
+    <GitVersionAssemblyFile>$(MSBuildThisFileDirectory)GitVersion.MsBuild\bin\Bootstrap\netstandard2.0\Dorssel.GitVersion.MsBuild.dll</GitVersionAssemblyFile>
+    <Bootstrap Condition=" '$(Bootstrap)' != 'true' ">false</Bootstrap>
+    <Bootstrap Condition=" !Exists($(GitVersionAssemblyFile)) ">true</Bootstrap>
+	<OutputPath Condition="$(Bootstrap)">bin\Bootstrap\</OutputPath>
+	<BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildThisFileDirectory)GitVersion.MsBuild\build\GitVersion.MsBuild.props" Condition="!$(Bootstrap)" />
 
 </Project>
