@@ -50,7 +50,7 @@ jobs:
 
       - name: Test
         run: |
-          dotnet run --project Example --no-build
+          dotnet run --configuration Release  --no-build--project Example
           dotnet test --configuration Release --no-build -p:TestingPlatformCommandLineArguments="--report-trx --coverage"
 
       - name: Package

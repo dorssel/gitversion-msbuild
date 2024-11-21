@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 <Project Sdk="MSTest.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
+    <TargetFramework>$(MainTargetFramework)</TargetFramework>
   </PropertyGroup>
 
 </Project>
