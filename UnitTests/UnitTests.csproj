@@ -8,6 +8,19 @@ SPDX-License-Identifier: MIT
 
   <PropertyGroup>
     <TargetFramework>$(MainTargetFramework)</TargetFramework>
+
+    <!-- Be strict when testing, even in Release (at the cost of performance) -->
+    <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+
+    <SignAssembly>true</SignAssembly>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GitVersion.MsBuild\GitVersion.MsBuild.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Build.Utilities.Core" />
+  </ItemGroup>
 
 </Project>
