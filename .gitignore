@@ -6,5 +6,6 @@
 .vscode/
 bin/
 obj/
+TestResults/
 
 *.user

@@ -20,7 +20,7 @@ public class GenerateGitVersionInformation
     [Required]
     public string Language { get; set; } = "C#";
 
-    public string? UseProjectNamespaceForGitVersionInformation { get; set; } = string.Empty;
+    public string? UseProjectNamespaceForGitVersionInformation { get; set; }
 
     public string RootNamespace { get; set; } = string.Empty;
 

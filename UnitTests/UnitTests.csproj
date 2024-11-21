@@ -21,6 +21,7 @@ SPDX-License-Identifier: MIT
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Build.Utilities.Core" />
+    <PackageReference Include="Moq" />
   </ItemGroup>
 
 </Project>
