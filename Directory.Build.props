@@ -40,9 +40,8 @@ SPDX-License-Identifier: MIT
     <NoWarn>CS1591</NoWarn>
 
     <!-- Assembly metadata -->
-    <Product>dotnet-xmss-native</Product>
+    <Product>gitversion-msbuild</Product>
     <Company>Frans van Dorsselaer</Company>
-    <Copyright>Copyright (C) $([System.DateTime]::UtcNow.ToString("yyyy"))  $(Company)</Copyright>
 
     <!-- NuGet metadata -->
     <Title>$(Product)</Title>
@@ -56,6 +55,15 @@ SPDX-License-Identifier: MIT
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
+  <Target Name="SetCopyright" AfterTargets="GetVersion">
+    <PropertyGroup>
+      <!-- For deterministic builds, use the commit year as the copyright year. -->
+      <CopyrightYear Condition="$(ContinuousIntegrationBuild)">$([System.DateTime]::Parse($(GitVersion_CommitDate)).ToString("yyyy"))</CopyrightYear>
+      <CopyrightYear Condition="!$(ContinuousIntegrationBuild)">$([System.DateTime]::UtcNow.ToString("yyyy"))</CopyrightYear>
+      <Copyright>Copyright (C) $(CopyrightYear)  $(Company)</Copyright>
+    </PropertyGroup>
+  </Target>
+
   <!-- "self-reference" bootstrapping -->
   <PropertyGroup>
     <GitVersionAssemblyFile>$(MSBuildThisFileDirectory)GitVersion.MsBuild\bin\Bootstrap\netstandard2.0\Dorssel.GitVersion.MsBuild.dll</GitVersionAssemblyFile>
@@ -65,6 +73,6 @@ SPDX-License-Identifier: MIT
     <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
   </PropertyGroup>
 
-  <Import Project="$(MSBuildThisFileDirectory)GitVersion.MsBuild\build\GitVersion.MsBuild.props" Condition="!$(Bootstrap)" />
+  <Import Project="$(MSBuildThisFileDirectory)GitVersion.MsBuild\build\Dorssel.GitVersion.MsBuild.props" Condition="!$(Bootstrap)" />
 
 </Project>
