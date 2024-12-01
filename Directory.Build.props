@@ -44,7 +44,7 @@ SPDX-License-Identifier: MIT
     <!-- NuGet metadata -->
     <Title>$(Product)</Title>
     <Authors>$(Company)</Authors>
-    <Description>TODO</Description>
+    <Description>Alternative GitVersion.MsBuild that is compatible with Visual Studio.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>

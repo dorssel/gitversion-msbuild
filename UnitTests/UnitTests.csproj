@@ -11,8 +11,11 @@ SPDX-License-Identifier: MIT
 
     <!-- Be strict when testing, even in Release (at the cost of performance) -->
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
+  </PropertyGroup>
 
-    <SignAssembly>true</SignAssembly>
+  <PropertyGroup>
+    <!-- Updates to transitive MSTest.Sdk dependencies -->
+    <MicrosoftNETTestSdkVersion>17.12.0</MicrosoftNETTestSdkVersion>
   </PropertyGroup>
 
   <ItemGroup>
