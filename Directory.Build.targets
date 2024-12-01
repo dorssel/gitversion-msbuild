@@ -6,7 +6,7 @@ SPDX-License-Identifier: MIT
 -->
 <Project>
 
-  <!-- "self-reference" bootstrapping -->
+  <!-- "self-reference" after bootstrapping -->
   <Import Project="$(MSBuildThisFileDirectory)GitVersion.MsBuild\build\Dorssel.GitVersion.MsBuild.targets" Condition="!$(Bootstrap)" />
 
 </Project>
