@@ -9,3 +9,5 @@ obj/
 TestResults/
 
 *.user
+*.lutconfig
+
