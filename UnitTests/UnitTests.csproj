@@ -19,6 +19,11 @@ SPDX-License-Identifier: MIT
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Required for (Live) Unit Testing -->
+    <Content Include="$(GitVersionOutputFile)" Link="gitversion.json" CopyToOutputDirectory="PreserveNewest" Visible="false" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <ProjectReference Include="..\GitVersion.MsBuild\GitVersion.MsBuild.csproj" />
   </ItemGroup>
 

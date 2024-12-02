@@ -16,16 +16,9 @@ sealed class TaskTests
 
     static string GetVersionFile()
     {
-        for (var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            directory is not null; directory = Path.GetDirectoryName(directory))
-        {
-            var file = Path.Combine(directory, "obj", "gitversion.json");
-            if (File.Exists(file))
-            {
-                return file;
-            }
-        }
-        throw new FileNotFoundException("gitversion.json");
+        var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
+        var file = Path.Combine(directory, "gitversion.json");
+        return File.Exists(file) ? file : throw new FileNotFoundException("gitversion.json");
     }
 
     [TestMethod]

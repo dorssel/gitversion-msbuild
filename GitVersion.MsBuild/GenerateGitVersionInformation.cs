@@ -113,9 +113,7 @@ public class GenerateGitVersionInformation
         }
         else
         {
-            _ = builder.Append($$"""
-                {{namespaceContent}}
-                """);
+            _ = builder.Append(namespaceContent);
         }
 
         // NOTE: Original GitVersion.MsBuild always generates UNIX line endings, even on Windows.
