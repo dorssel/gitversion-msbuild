@@ -16,7 +16,7 @@ SPDX-License-Identifier: MIT
 
     <GitVersionTargetFramework Condition="'$(GitVersionTargetFramework)' == ''">netstandard2.0</GitVersionTargetFramework>
     <GitVersionFileExe Condition="'$(GitVersionFileExe)' == ''">dotnet tool run --allow-roll-forward dotnet-gitversion</GitVersionFileExe>
-    <GitVersionAssemblyFile Condition="'$(GitVersionAssemblyFile)' == ''">$([MSBuild]::EnsureTrailingSlash($(MSBuildThisFileDirectory)$(GitVersionTargetFramework)))GitVersion.MsBuild.dll</GitVersionAssemblyFile>
+    <GitVersionAssemblyFile Condition="'$(GitVersionAssemblyFile)' == ''">$(MSBuildThisFileDirectory)..\tools\$(GitVersionTargetFramework)\Dorssel.GitVersion.MsBuild.dll</GitVersionAssemblyFile>
   </PropertyGroup>
 
   <UsingTask TaskName="GetVersion" AssemblyFile="$(GitVersionAssemblyFile)" />

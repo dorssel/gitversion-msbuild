@@ -14,6 +14,9 @@ SPDX-License-Identifier: MIT
 
     <IsTrimmable>false</IsTrimmable>
     <IsPackable>true</IsPackable>
+    <BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+    <NoWarn>NU5128;$(NoWarn)</NoWarn>
     <PackageId>Dorssel.GitVersion.MsBuild</PackageId>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
@@ -21,8 +24,10 @@ SPDX-License-Identifier: MIT
   <ItemGroup>
     <None Include="..\LICENSE.txt" Pack="true" PackagePath="" Visible="false" />
     <None Include="..\README.md" Pack="true" PackagePath="" Visible="false" />
-    <None Include="build\Dorssel.GitVersion.MsBuild.props" PackagePath="buildTransitive" Pack="true" />
-    <None Include="build\Dorssel.GitVersion.MsBuild.targets" PackagePath="buildTransitive" Pack="true" />
+    <None Include="build\Dorssel.GitVersion.MsBuild.props" PackagePath="build" Pack="true" />
+    <None Include="build\Dorssel.GitVersion.MsBuild.targets" PackagePath="build" Pack="true" />
+    <None Include="buildMultiTargeting\Dorssel.GitVersion.MsBuild.props" PackagePath="buildMultiTargeting" Pack="true" />
+    <None Include="buildMultiTargeting\Dorssel.GitVersion.MsBuild.targets" PackagePath="buildMultiTargeting" Pack="true" />
   </ItemGroup>
 
   <ItemGroup>
