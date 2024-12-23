@@ -13,11 +13,6 @@ SPDX-License-Identifier: MIT
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <!-- Updates to transitive MSTest.Sdk dependencies -->
-    <MicrosoftNETTestSdkVersion>17.12.0</MicrosoftNETTestSdkVersion>
-  </PropertyGroup>
-
   <ItemGroup>
     <!-- Required for (Live) Unit Testing -->
     <Content Include="$(GitVersionOutputFile)" Link="gitversion.json" CopyToOutputDirectory="PreserveNewest" Visible="false" />
