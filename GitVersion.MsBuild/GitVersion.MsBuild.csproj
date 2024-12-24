@@ -16,7 +16,7 @@ SPDX-License-Identifier: MIT
     <IsPackable>true</IsPackable>
     <BuildOutputTargetFolder>tools</BuildOutputTargetFolder>
     <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
-    <NoWarn>NU5128;$(NoWarn)</NoWarn>
+    <NoWarn>$(NoWarn);CS1591;NU5128</NoWarn>
     <PackageId>Dorssel.GitVersion.MsBuild</PackageId>
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
