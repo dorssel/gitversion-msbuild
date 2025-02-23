@@ -20,7 +20,8 @@ updates:
     directory: '/'
     schedule:
       interval: 'daily'
-    groups:
-      mstest:
-        patterns:
-          - 'MSTest.*'
+    ignore:
+      # These are bundeled (transitive) by MSTest.Sdk
+      - dependency-name: Microsoft.NET.Test.Sdk
+      - dependency-name: Microsoft.Testing.Extensions.CodeCoverage
+      - dependency-name: Microsoft.Testing.Extensions.TrxReport
