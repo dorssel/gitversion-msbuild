@@ -15,7 +15,7 @@
 *.json      text
 *.yml       text
 
-*.sln      text
+*.slnx     text
 *.csproj   text
 *.cs       text eol=crlf
 *.props    text
