@@ -1,0 +1,21 @@
+<!--
+SPDX-FileCopyrightText: 2025 Frans van Dorsselaer
+
+SPDX-License-Identifier: MIT
+-->
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Build.targets" />
+    <File Path="Directory.Packages.props" />
+    <File Path="GitVersion.yml" />
+    <File Path="global.json" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Example/Example.csproj" />
+  <Project Path="GitVersion.MsBuild/GitVersion.MsBuild.csproj" />
+  <Project Path="UnitTests/UnitTests.csproj" />
+</Solution>
