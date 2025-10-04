@@ -1,3 +1,5 @@
+Codecov
 csproj
 Dorssel
 gitversion
+netstandard
