@@ -52,7 +52,7 @@ jobs:
         run: |
           dotnet run --configuration Release --no-build --project Example
           dotnet test --configuration Release --no-build \
-            -p:TestingPlatformCommandLineArguments="--report-trx --coverage --coverage-output-format cobertura --coverage-output coverage.cobertura.xml"
+            --report-trx --coverage --coverage-output-format cobertura --coverage-output coverage.cobertura.xml
 
       - name: Package
         run: dotnet pack --configuration Release --no-build
