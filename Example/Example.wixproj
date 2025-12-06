@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: 2025 Frans van Dorsselaer
+
+SPDX-License-Identifier: MIT
+-->
+<Project Sdk="WixToolset.Sdk">
+  <Import Project="..\SelfReference.props" />
+  <PropertyGroup>
+    <Platforms>x64</Platforms>
+  </PropertyGroup>
+  <Import Project="..\SelfReference.targets" />
+</Project>

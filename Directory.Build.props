@@ -52,6 +52,10 @@ SPDX-License-Identifier: MIT
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="GitVersion.MsBuild" PrivateAssets="all" />
+  </ItemGroup>
+
   <Target Name="SetCopyright" AfterTargets="GetVersion">
     <PropertyGroup>
       <!-- For deterministic builds, use the commit year as the copyright year. -->
@@ -66,16 +70,5 @@ SPDX-License-Identifier: MIT
       <PackageVersion>$(GitVersion_MajorMinorPatch)</PackageVersion>
     </PropertyGroup>
   </Target>
-
-  <!-- "self-reference" bootstrapping -->
-  <PropertyGroup>
-    <GitVersionAssemblyFile>$(MSBuildThisFileDirectory)GitVersion.MsBuild\bin\Bootstrap\netstandard2.0\Dorssel.GitVersion.MsBuild.dll</GitVersionAssemblyFile>
-    <Bootstrap Condition=" '$(Bootstrap)' != 'true' ">false</Bootstrap>
-    <Bootstrap Condition=" !Exists($(GitVersionAssemblyFile)) ">true</Bootstrap>
-    <OutputPath Condition="$(Bootstrap)">bin\Bootstrap\</OutputPath>
-    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
-  </PropertyGroup>
-
-  <Import Project="$(MSBuildThisFileDirectory)GitVersion.MsBuild\build\Dorssel.GitVersion.MsBuild.props" Condition="!$(Bootstrap)" />
 
 </Project>

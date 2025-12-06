@@ -1,10 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <!--
 SPDX-FileCopyrightText: 2024 Frans van Dorsselaer
 
 SPDX-License-Identifier: MIT
 -->
 <Project Sdk="MSTest.Sdk">
+
+  <Import Project="..\SelfReference.props" />
 
   <PropertyGroup>
     <TargetFramework>$(MainTargetFramework)</TargetFramework>
@@ -26,5 +28,7 @@ SPDX-License-Identifier: MIT
     <PackageReference Include="Microsoft.Build.Utilities.Core" />
     <PackageReference Include="Moq" />
   </ItemGroup>
+
+  <Import Project="..\SelfReference.targets" />
 
 </Project>

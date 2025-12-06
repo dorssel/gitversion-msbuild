@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: 2025 Frans van Dorsselaer
+
+SPDX-License-Identifier: MIT
+-->
+<Project>
+
+  <!--
+  Projects (unit tests, examples) within this very repository cannot reference the package which we are actually building.
+  Instead, they should import the .props file at the top of their project file, and the .targets file at the bottom.
+  This is equivalent to referencing the package, but uses the locally built assembly instead of the NuGet package.
+  Consider it to be a "self-reference" or "bootstrapping".
+  -->
+
+  <Import Project="$(MSBuildThisFileDirectory)GitVersion.MsBuild\build\Dorssel.GitVersion.MsBuild.targets" />
+
+</Project>
