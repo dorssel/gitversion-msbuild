@@ -9,13 +9,18 @@ SPDX-License-Identifier: MIT
     <File Path=".gitattributes" />
     <File Path=".gitignore" />
     <File Path="Directory.Build.props" />
-    <File Path="Directory.Build.targets" />
     <File Path="Directory.Packages.props" />
     <File Path="GitVersion.yml" />
     <File Path="global.json" />
     <File Path="README.md" />
+    <File Path="SelfReference.props" />
+    <File Path="SelfReference.targets" />
   </Folder>
-  <Project Path="Example/Example.csproj" />
+  <Project Path="Example/Example.wixproj" Type="b7dd6f7e-def8-4e67-b5b7-07ef123db6f0" Id="1dbc7df5-ebaa-474a-be10-7c66b0d9bfd1">
+    <BuildDependency Project="GitVersion.MsBuild/GitVersion.MsBuild.csproj" />
+    <Platform Project="x64" />
+    <Build Project="false" />
+  </Project>
   <Project Path="GitVersion.MsBuild/GitVersion.MsBuild.csproj" />
   <Project Path="UnitTests/UnitTests.csproj" />
 </Solution>

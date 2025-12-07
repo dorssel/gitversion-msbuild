@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: 2025 Frans van Dorsselaer
+
+SPDX-License-Identifier: MIT
+-->
+<Wix xmlns="http://wixtoolset.org/schemas/v4/wxs">
+    <Fragment>
+        <ComponentGroup Id="ExampleComponents" Directory="INSTALLFOLDER">
+            <Component>
+                <File Source="ExampleComponents.wxs" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

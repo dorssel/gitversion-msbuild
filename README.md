@@ -15,40 +15,24 @@ SPDX-License-Identifier: MIT
 
 ## Why
 
-This package is an alternative to the original [GitVersion.MsBuild](https://gitversion.net/docs/usage/msbuild), which
-since version 6 no longer supports Visual Studio. This alternative *does* support Visual Studio.
+This package is an addition to the original [GitVersion.MsBuild](https://gitversion.net/docs/usage/msbuild), which
+does not support building WiX projects that use GitVersion.MsBuild from within Visual Studio 2026.
+
+For older Visual Studio versions, see the README for this project,
+[version 1.1.1](https://github.com/dorssel/gitversion-msbuild/tree/v1.1.1?tab=readme-ov-file#gitversionmsbuild-netstandard20).
 
 ## When
 
-If you are using GitVersion.MsBuild version 6+ *and* Visual Studio, then you may want to use this package instead
-of the original.
-
-## What
-
-Currently, this package is not (yet) a full replacement. I implemented only the features I required
-for my own projects. However, it is really easy to extend it; I see no reason why this could not be a
-full replacement for all use cases.
-
-## What *NOT*
-
-Just create an issue if you require one of the following features, which are currently *not* supported:
-
-- VB, F# (currently only C# is supported)
-- `UpdateAssemblyInfo` (this is not required for modern SDK style projects)
+If you are building WiX projects that use GitVersion.MsBuild from within Visual Studio 2026, you need this package.
+If not, then you do not need this package at all.
 
 ## How
 
-Update the following reference:
+Add the following reference in your WiX project:
 
 ```diff
--<PackageReference Include="GitVersion.MsBuild" PrivateAssets="all" />
-+<PackageReference Include="Dorssel.GitVersion.MsBuild" PrivateAssets="all" />
-```
-
-Add the GitVersion CLI tool to your solution:
-
-```powershell
-dotnet tool install GitVersion.Tool
+<PackageReference Include="GitVersion.MsBuild" PrivateAssets="all" />
++<PackageReference Include="Dorssel.GitVersion.MsBuild" PrivateAssets="all" Version="2.*" />
 ```
 
 All done!
