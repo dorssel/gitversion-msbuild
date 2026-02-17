@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 <Project>
   <ItemGroup>
     <!-- GitVersion.MsBuild -->
-    <PackageVersion Include="GitVersion.MsBuild" Version="6.5.1" />
+    <PackageVersion Include="GitVersion.MsBuild" Version="6.6.0" />
     <PackageVersion Include="Microsoft.Build.Utilities.Core" Version="18.3.3" />
     <!-- UnitTests -->
     <PackageVersion Include="Moq" Version="4.20.72" />
