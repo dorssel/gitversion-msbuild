@@ -7,23 +7,50 @@ using Microsoft.Build.Framework;
 
 namespace Dorssel.GitVersion.MsBuild;
 
-public class GetVersion
-    : GitVersionTaskBase
+public class GetVersion : GitVersionTaskBase
 {
     [Output]
+    public string AssemblySemFileVer { get; set; } = string.Empty;
+
+    [Output]
+    public string AssemblySemVer { get; set; } = string.Empty;
+
+    [Output]
+    public string BranchName { get; set; } = string.Empty;
+
+    [Output]
+    public string BuildMetaData { get; set; } = string.Empty;
+
+    [Output]
+    public string CommitDate { get; set; } = string.Empty;
+
+    [Output]
+    [Obsolete("CommitsSinceVersionSource has been deprecated. Use VersionSourceDistance instead.")]
+    public string CommitsSinceVersionSource { get; set; } = string.Empty;
+
+    [Output]
+    public string EscapedBranchName { get; set; } = string.Empty;
+
+    [Output]
+    public string FullBuildMetaData { get; set; } = string.Empty;
+
+    [Output]
+    public string FullSemVer { get; set; } = string.Empty;
+
+    [Output]
+    public string InformationalVersion { get; set; } = string.Empty;
+
+    [Output]
     public string Major { get; set; } = string.Empty;
+
+    [Output]
+    public string MajorMinorPatch { get; set; } = string.Empty;
 
     [Output]
     public string Minor { get; set; } = string.Empty;
 
     [Output]
     public string Patch { get; set; } = string.Empty;
-
-    [Output]
-    public string PreReleaseTag { get; set; } = string.Empty;
-
-    [Output]
-    public string PreReleaseTagWithDash { get; set; } = string.Empty;
 
     [Output]
     public string PreReleaseLabel { get; set; } = string.Empty;
@@ -35,37 +62,13 @@ public class GetVersion
     public string PreReleaseNumber { get; set; } = string.Empty;
 
     [Output]
-    public string WeightedPreReleaseNumber { get; set; } = string.Empty;
+    public string PreReleaseTag { get; set; } = string.Empty;
 
     [Output]
-    public string BuildMetaData { get; set; } = string.Empty;
-
-    [Output]
-    public string FullBuildMetaData { get; set; } = string.Empty;
-
-    [Output]
-    public string MajorMinorPatch { get; set; } = string.Empty;
+    public string PreReleaseTagWithDash { get; set; } = string.Empty;
 
     [Output]
     public string SemVer { get; set; } = string.Empty;
-
-    [Output]
-    public string AssemblySemVer { get; set; } = string.Empty;
-
-    [Output]
-    public string AssemblySemFileVer { get; set; } = string.Empty;
-
-    [Output]
-    public string FullSemVer { get; set; } = string.Empty;
-
-    [Output]
-    public string InformationalVersion { get; set; } = string.Empty;
-
-    [Output]
-    public string BranchName { get; set; } = string.Empty;
-
-    [Output]
-    public string EscapedBranchName { get; set; } = string.Empty;
 
     [Output]
     public string Sha { get; set; } = string.Empty;
@@ -74,16 +77,22 @@ public class GetVersion
     public string ShortSha { get; set; } = string.Empty;
 
     [Output]
-    public string CommitDate { get; set; } = string.Empty;
+    public string UncommittedChanges { get; set; } = string.Empty;
+
+    [Output]
+    public string VersionSourceDistance { get; set; } = string.Empty;
+
+    [Output]
+    public string VersionSourceIncrement { get; set; } = string.Empty;
+
+    [Output]
+    public string VersionSourceSemVer { get; set; } = string.Empty;
 
     [Output]
     public string VersionSourceSha { get; set; } = string.Empty;
 
     [Output]
-    public string CommitsSinceVersionSource { get; set; } = string.Empty;
-
-    [Output]
-    public string UncommittedChanges { get; set; } = string.Empty;
+    public string WeightedPreReleaseNumber { get; set; } = string.Empty;
 
     public override bool Execute()
     {
