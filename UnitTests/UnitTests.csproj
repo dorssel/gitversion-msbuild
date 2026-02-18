@@ -25,6 +25,7 @@ SPDX-License-Identifier: MIT
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="JunitXml.TestLogger" />
     <PackageReference Include="Microsoft.Build.Utilities.Core" />
     <PackageReference Include="Moq" />
   </ItemGroup>
