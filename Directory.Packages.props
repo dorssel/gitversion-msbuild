@@ -7,7 +7,7 @@ SPDX-License-Identifier: MIT
 <Project>
   <ItemGroup>
     <!-- GitVersion.MsBuild -->
-    <PackageVersion Include="GitVersion.MsBuild" Version="6.6.1" />
+    <PackageVersion Include="GitVersion.MsBuild" Version="6.6.2" />
     <PackageVersion Include="Microsoft.Build.Utilities.Core" Version="18.4.0" />
     <!-- UnitTests -->
     <PackageVersion Include="JunitXml.TestLogger" Version="8.0.0" />
