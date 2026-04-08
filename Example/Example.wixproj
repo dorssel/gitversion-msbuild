@@ -7,6 +7,7 @@ SPDX-License-Identifier: MIT
 <Project Sdk="WixToolset.Sdk">
   <Import Project="..\SelfReference.props" />
   <PropertyGroup>
+    <AcceptEula>wix7</AcceptEula>
     <Platforms>x64</Platforms>
   </PropertyGroup>
   <Import Project="..\SelfReference.targets" />
