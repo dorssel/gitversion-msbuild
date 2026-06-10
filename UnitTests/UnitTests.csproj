@@ -10,6 +10,7 @@ SPDX-License-Identifier: MIT
 
   <PropertyGroup>
     <TargetFramework>$(MainTargetFramework)</TargetFramework>
+    <IsDevelopment>true</IsDevelopment>
 
     <!-- Be strict when testing, even in Release (at the cost of performance) -->
     <CheckForOverflowUnderflow>true</CheckForOverflowUnderflow>
