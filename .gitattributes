@@ -20,3 +20,5 @@
 *.cs       text eol=crlf
 *.props    text
 *.targets  text
+
+packages.lock.json  text linguist-generated
