@@ -8,6 +8,7 @@ SPDX-License-Identifier: MIT
 
 [![REUSE status](https://api.reuse.software/badge/github.com/dorssel/gitversion-msbuild)](https://api.reuse.software/info/github.com/dorssel/gitversion-msbuild)
 [![Codecov](https://codecov.io/gh/dorssel/gitversion-msbuild/branch/main/graph/badge.svg?token=gn5x2PehaL)](https://codecov.io/gh/dorssel/gitversion-msbuild)
+[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/dorssel/gitversion-msbuild/badge)](https://scorecard.dev/viewer/?uri=github.com/dorssel/gitversion-msbuild)
 [![NuGet](https://img.shields.io/nuget/v/Dorssel.GitVersion.MsBuild?logo=nuget)](https://www.nuget.org/packages/Dorssel.GitVersion.MsBuild)
 
 ## Why
