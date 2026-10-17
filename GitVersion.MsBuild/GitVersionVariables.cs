@@ -3,26 +3,23 @@
 // SPDX-License-Identifier: MIT
 
 using System.Collections.ObjectModel;
+using System.Runtime.Serialization.Json;
+using System.Text;
 
 namespace Dorssel.GitVersion.MsBuild;
 
 static class GitVersionVariables
 {
-    public static ReadOnlyDictionary<string, string> FromFile(string versionFile)
+    public static ReadOnlyDictionary<string, string> FromJson(string json)
     {
-        var dictionary = new Dictionary<string, string>();
-
-        foreach (var line in File.ReadAllLines(versionFile))
-        {
-            var keyValue = line.Split(':');
-            if (keyValue.Length != 2)
+        var serializer = new DataContractJsonSerializer(typeof(Dictionary<string, string>),
+            new DataContractJsonSerializerSettings()
             {
-                // opening or closing brace
-                continue;
-            }
-            dictionary.Add(keyValue[0].Trim(' ', '"'), keyValue[1].Trim(' ', '"', ','));
-        }
+                UseSimpleDictionaryFormat = true
+            });
 
-        return new(dictionary);
+        using var stream = new MemoryStream(Encoding.UTF8.GetBytes(json));
+        var result = (Dictionary<string, string>)serializer.ReadObject(stream);
+        return new(result);
     }
 }

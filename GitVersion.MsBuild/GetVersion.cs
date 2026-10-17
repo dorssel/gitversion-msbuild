@@ -96,7 +96,7 @@ public class GetVersion : GitVersionTaskBase
 
     public override bool Execute()
     {
-        foreach (var keyValue in GitVersionVariables.FromFile(VersionFile!))
+        foreach (var keyValue in GitVersionVariables.FromJson(File.ReadAllText(VersionFile)))
         {
             GetType().GetProperty(keyValue.Key).SetValue(this, keyValue.Value);
         }
