@@ -12,25 +12,28 @@
 
 version: 2
 updates:
-  - package-ecosystem: 'github-actions'
-    directory: '/'
+  - package-ecosystem: github-actions
+    directory: /
     schedule:
-      interval: 'daily'
+      interval: daily
     groups:
       all-actions:
         patterns:
           - '*'
-  - package-ecosystem: 'dotnet-sdk'
-    directory: '/'
+  - package-ecosystem: dotnet-sdk
+    directory: /
     schedule:
-      interval: 'weekly'
-      day: 'wednesday'
-  - package-ecosystem: 'nuget'
-    directory: '/'
+      interval: weekly
+      day: wednesday
+  - package-ecosystem: nuget
+    directory: /
     schedule:
-      interval: 'daily'
+      interval: daily
     ignore:
-      # These are bundeled (transitive) by MSTest.Sdk
+      # These are bundled (transitive) by MSTest.Sdk
       - dependency-name: Microsoft.NET.Test.Sdk
       - dependency-name: Microsoft.Testing.Extensions.CodeCoverage
       - dependency-name: Microsoft.Testing.Extensions.TrxReport
+      # Version 18.10.0 and higher require .NET 11 for unit tests.
+      - dependency-name: Microsoft.Build.Utilities.Core
+        versions: ['>= 18.10.0']
