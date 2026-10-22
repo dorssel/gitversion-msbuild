@@ -13,6 +13,6 @@ SPDX-License-Identifier: MIT
     <PackageVersion Include="JunitXml.TestLogger" Version="8.0.0" />
     <PackageVersion Include="Moq" Version="4.21.0" />
     <!-- fuzzing tests -->
-    <PackageVersion Include="FsCheck" Version="3.3.4" />
+    <PackageVersion Include="FsCheck" Version="3.6.0" />
   </ItemGroup>
 </Project>
