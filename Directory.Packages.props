@@ -10,7 +10,7 @@ SPDX-License-Identifier: MIT
     <PackageVersion Include="GitVersion.MsBuild" Version="6.8.2" />
     <PackageVersion Include="Microsoft.Build.Utilities.Core" Version="18.9.6" />
     <!-- UnitTests -->
-    <PackageVersion Include="JunitXml.TestLogger" Version="8.0.0" />
+    <PackageVersion Include="JunitXml.TestLogger" Version="8.1.0" />
     <PackageVersion Include="Moq" Version="4.21.0" />
     <!-- fuzzing tests -->
     <PackageVersion Include="FsCheck" Version="3.6.0" />
