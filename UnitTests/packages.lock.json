@@ -4,9 +4,9 @@
     "net11.0": {
       "GitVersion.MsBuild": {
         "type": "Direct",
-        "requested": "[6.8.2, )",
-        "resolved": "6.8.2",
-        "contentHash": "eTd8jUiogUXpVssFyDWWdMrPr5Cdc57tWaQ3Cv/eMIhnumOHZhDkc/wcy8hYU8aH7NS4VT2w/pHjVITDSTXMGw=="
+        "requested": "[7.0.0, )",
+        "resolved": "7.0.0",
+        "contentHash": "wHL9ZpWdhZ3qvu4Y9ysKpzaGzO5C9IycUZzVVjkDyQmQpvzY9Ta564dkv/NN7ElsKN2vHf5pit3d/Gt0mFUHrA=="
       },
       "JunitXml.TestLogger": {
         "type": "Direct",

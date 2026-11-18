@@ -1,0 +1,4 @@
+{
+  "MajorMinorPatch": "9.99.999",
+  "SomeFutureVariableThatIsCurrentlyNotMapped": "This tests forward compatibility"
+}
