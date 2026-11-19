@@ -19,3 +19,17 @@ GitHub Actions before merge.
 * **Focus review on code and configuration defects:**
 Limit feedback on project and build files (`.csproj`, `Directory.Build.props`, `global.json`, `.github/workflows/*`) to
 actual syntax errors, invalid MSBuild conditions, security risks, or breaking configuration bugs.
+
+## Code Review Exclusions & Testing Scope
+
+When reviewing pull requests, adhere to the following boundaries:
+
+* **Assume human-led practical & RC testing:**
+Testing release candidates and real-world behavior on actual Visual Studio Code instances is strictly the responsibility
+of the human maintainers. Always assume practical, end-to-end, and manual verification is handled outside of automated
+tests. Do not warn about missing manual checks or request real-environment verification.
+
+* **GitVersion upgrades:**
+Do not flag, comment on, withhold approval, or request additional test coverage regarding breaking configuration,
+output, parser, or managed-Git changes lacking validation across real MSBuild, WiX, version-calculation, or
+consumer-project scenarios. Relying on existing fixture tests is intentional and approved.

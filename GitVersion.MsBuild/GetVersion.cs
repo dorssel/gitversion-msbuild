@@ -22,11 +22,20 @@ public class GetVersion : GitVersionTaskBase
     public string BuildMetaData { get; set; } = string.Empty;
 
     [Output]
+    public string CommitCountSourceDistance { get; set; } = string.Empty;
+
+    [Output]
+    public string CommitCountSourceSha { get; set; } = string.Empty;
+
+    [Output]
     public string CommitDate { get; set; } = string.Empty;
 
     [Output]
-    [Obsolete("CommitsSinceVersionSource has been deprecated. Use VersionSourceDistance instead.")]
+    [Obsolete("CommitsSinceVersionSource has been deprecated in GitVersion v6, and was removed from v7. Use VersionSourceDistance instead.")]
     public string CommitsSinceVersionSource { get; set; } = string.Empty;
+
+    [Output]
+    public string CustomVersion { get; set; } = string.Empty;
 
     [Output]
     public string EscapedBranchName { get; set; } = string.Empty;
@@ -56,19 +65,36 @@ public class GetVersion : GitVersionTaskBase
     public string PreReleaseLabel { get; set; } = string.Empty;
 
     [Output]
+    public string PreReleaseLabelName { get; set; } = string.Empty;
+
+    [Output]
     public string PreReleaseLabelWithDash { get; set; } = string.Empty;
+
+    [Output]
+    public string PreReleaseLabelNameWithDash { get; set; } = string.Empty;
 
     [Output]
     public string PreReleaseNumber { get; set; } = string.Empty;
 
     [Output]
+    [Obsolete("PreReleaseTag has been renamed to PreReleaseLabel in GitVersion v7, and the old PreReleaseLabel has been renamed to PreReleaseLabelName.")]
     public string PreReleaseTag { get; set; } = string.Empty;
 
     [Output]
+    [Obsolete("PreReleaseTagWithDash has been renamed to PreReleaseLabelWithDash in GitVersion v7, and the old PreReleaseLabelWithDash has been renamed to PreReleaseLabelNameWithDash.")]
     public string PreReleaseTagWithDash { get; set; } = string.Empty;
 
     [Output]
     public string SemVer { get; set; } = string.Empty;
+
+    [Output]
+    public string SemVerSourceIncrement { get; set; } = string.Empty;
+
+    [Output]
+    public string SemVerSourceSemVer { get; set; } = string.Empty;
+
+    [Output]
+    public string SemVerSourceSha { get; set; } = string.Empty;
 
     [Output]
     public string Sha { get; set; } = string.Empty;
@@ -98,7 +124,15 @@ public class GetVersion : GitVersionTaskBase
     {
         foreach (var keyValue in GitVersionVariables.FromJson(File.ReadAllText(VersionFile)))
         {
-            GetType().GetProperty(keyValue.Key).SetValue(this, keyValue.Value);
+            var property = GetType().GetProperty(keyValue.Key);
+            if (property is null)
+            {
+                Log.LogMessage($"GitVersion.MsBuild exposes '{keyValue.Key}', which is not (yet) mapped by Dorssel.GitVersion.MsBuild.");
+            }
+            else
+            {
+                property.SetValue(this, keyValue.Value);
+            }
         }
 
         return !Log.HasLoggedErrors;

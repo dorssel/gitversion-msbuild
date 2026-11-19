@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: MIT
 
-using System.Reflection;
 using Dorssel.GitVersion.MsBuild;
 using Microsoft.Build.Framework;
 using Moq;
@@ -14,11 +13,10 @@ sealed class TaskTests
 {
     public required TestContext TestContext { get; set; }
 
-    static string GetVersionFile()
+    static string GetTestData(string path1, params string[] pathN)
     {
-        var directory = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!;
-        var file = Path.Combine(directory, "gitversion.json");
-        return File.Exists(file) ? file : throw new FileNotFoundException("gitversion.json");
+        var file = Path.Combine([AppContext.BaseDirectory, path1, .. pathN]);
+        return File.Exists(file) ? file : throw new FileNotFoundException(((IEnumerable<string>)[path1, .. pathN]).Last());
     }
 
     [TestMethod]
@@ -28,7 +26,21 @@ sealed class TaskTests
         var task = new GetVersion
         {
             BuildEngine = buildEngine.Object,
-            VersionFile = GetVersionFile(),
+            VersionFile = GetTestData("gitversion.json"),
+            SolutionDirectory = TestContext.TestRunDirectory!
+        };
+        var result = task.Execute();
+        Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void GetVersion_Future()
+    {
+        var buildEngine = new Mock<IBuildEngine>();
+        var task = new GetVersion
+        {
+            BuildEngine = buildEngine.Object,
+            VersionFile = GetTestData("data", "future-gitversion.json"),
             SolutionDirectory = TestContext.TestRunDirectory!
         };
         var result = task.Execute();
